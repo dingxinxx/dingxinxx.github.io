@@ -2,100 +2,148 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
-  
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
   <title>JavaScrip学习笔记 | 在路上</title>
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/">
+  <link rel="alternate" href="/atom.xml" title="在路上">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="系列教程  网道（阮一峰系列） 《JavaScript 教程》  当前进度 Array 对象 链接  学习笔记 函数闭包闭包的最大用处有两个  一个是可以读取函数内部的变量， 另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。  1234567891011function createIncrementor(start) &amp;#123;  return function ()">
-<meta name="keywords" content="JS学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JavaScrip学习笔记">
-<meta property="og:url" content="http://yoursite.com/2018/09/29/JavaScrip学习笔记/index.html">
-<meta property="og:site_name" content="在路上">
-<meta property="og:description" content="系列教程  网道（阮一峰系列） 《JavaScript 教程》  当前进度 Array 对象 链接  学习笔记 函数闭包闭包的最大用处有两个  一个是可以读取函数内部的变量， 另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。  1234567891011function createIncrementor(start) &amp;#123;  return function ()">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-17T11:34:31.326Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScrip学习笔记">
-<meta name="twitter:description" content="系列教程  网道（阮一峰系列） 《JavaScript 教程》  当前进度 Array 对象 链接  学习笔记 函数闭包闭包的最大用处有两个  一个是可以读取函数内部的变量， 另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。  1234567891011function createIncrementor(start) &amp;#123;  return function ()">
+
+  <link rel="shortcut icon" href="">
+  <link rel="icon" href="">
   
-    <link rel="alternate" href="/atom.xml" title="在路上" type="application/atom+xml">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
   
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
 </head>
 </html>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">在路上</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-JavaScrip学习笔记" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/29/JavaScrip学习笔记/" class="article-date">
-  <time datetime="2018-09-29T02:01:21.000Z" itemprop="datePublished">2018-09-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JavaScrip学习笔记
-    </h1>
-  
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="系列教程"><a href="#系列教程" class="headerlink" title="系列教程"></a>系列教程</h2><hr>
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">在路上</a>
+				<div class="menu">
+					<ul class="h-list">
+            
+    					
+    						<li>
+    							<a class="nav flat-box" href="/">
+    								<i class="fas fa-rss fa-fw"></i>&nbsp;博客
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav flat-box" href="/archives/">
+    								<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class="underline"></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-top"><a class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class="fas fa-rss fa-fw"></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-JavaScrip学习笔记" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+    <section class="meta">
+        
+            <h1 class="title">JavaScrip学习笔记</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2018-09-29
+        </time>
+        
+          <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+            <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          </div>
+        
+
+        
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="系列教程"><a href="#系列教程" class="headerlink" title="系列教程"></a>系列教程</h2><hr>
 <ul>
 <li>网道（阮一峰系列） <a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener">《JavaScript 教程》</a></li>
 </ul>
 <h3 id="当前进度"><a href="#当前进度" class="headerlink" title="当前进度"></a>当前进度</h3><ul>
-<li>Array 对象 <a href="https://wangdoc.com/javascript/stdlib/array.html" target="_blank" rel="noopener">链接</a></li>
+<li>Number 对象 <a href="https://wangdoc.com/javascript/stdlib/number.html" target="_blank" rel="noopener">链接</a></li>
 </ul>
 <h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><hr>
 <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包的最大用处有两个</p>
+<a id="more"></a>
 <ul>
 <li>一个是可以读取函数内部的变量，</li>
 <li>另一个就是让这些变量始终保持在内存中，即闭包可以使得它诞生环境一直存在。</li>
@@ -145,141 +193,402 @@
 <h4 id="throw-语句"><a href="#throw-语句" class="headerlink" title="throw 语句"></a>throw 语句</h4><p>throw语句的作用是手动中断程序执行，抛出一个错误</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'x 必须为正数'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Uncaught ReferenceError: x is not defined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//throw也可以抛出自定义错误。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">UserError</span>(<span class="params">message</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.message = message || <span class="string">'默认信息'</span>;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'UserError'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">throw</span> <span class="keyword">new</span> UserError(<span class="string">'出错了！'</span>);</span><br><span class="line"><span class="comment">// Uncaught UserError &#123;message: "出错了！", name: "UserError"&#125;</span></span><br></pre></td></tr></table></figure>
 <h4 id="try…catch-结构"><a href="#try…catch-结构" class="headerlink" title="try…catch 结构"></a>try…catch 结构</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  foo.bar();</span><br><span class="line">&#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">  <span class="keyword">if</span> (e <span class="keyword">instanceof</span> <span class="built_in">EvalError</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.name + <span class="string">": "</span> + e.message);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e <span class="keyword">instanceof</span> <span class="built_in">RangeError</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(e.name + <span class="string">": "</span> + e.message);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//try...catch结构允许在最后添加一个finally代码块，</span></span><br><span class="line"><span class="comment">//表示不管是否出现错误，都必需在最后运行的语句。</span></span><br><span class="line"><span class="comment">//finally代码块用法的典型场景。</span></span><br><span class="line">openFile();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  writeFile(Data);</span><br><span class="line">&#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">  handleError(e);</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">  closeFile();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Array对象"><a href="#Array对象" class="headerlink" title="Array对象"></a>Array对象</h3><h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><h5 id="Array-isArray"><a href="#Array-isArray" class="headerlink" title="Array.isArray()"></a>Array.isArray()</h5><p>Array.isArray方法返回一个布尔值，表示参数是否为数组。它可以弥补typeof运算符的不足。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">typeof</span> arr         <span class="comment">// "object"      typeof运算符只能显示数组的类型是Object</span></span><br><span class="line"><span class="built_in">Array</span>.isArray(arr) <span class="comment">// true          Array.isArray方法可以识别数组。</span></span><br></pre></td></tr></table></figure>
+<h4 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法"></a>实例方法</h4><h5 id="valueOf-，toString"><a href="#valueOf-，toString" class="headerlink" title="valueOf()，toString()"></a>valueOf()，toString()</h5><ul>
+<li>数组的valueOf方法返回数组本身。</li>
+<li>toString方法也是对象的通用方法，数组的toString方法返回数组的字符串形式。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.toString() <span class="comment">// "1,2,3"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]];</span><br><span class="line">arr.toString() <span class="comment">// "1,2,3,4,5,6"</span></span><br></pre></td></tr></table></figure>
+<h5 id="push-，pop"><a href="#push-，pop" class="headerlink" title="push()，pop()"></a>push()，pop()</h5><ul>
+<li><code>push</code> 方法用于在数组的末端添加一个或多个元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</li>
+<li><code>pop</code>方法用于删除数组的最后一个元素，并返回该元素。注意，该方法会改变原数组。</li>
+</ul>
+<h5 id="shift-，unshift"><a href="#shift-，unshift" class="headerlink" title="shift()，unshift()"></a>shift()，unshift()</h5><ul>
+<li>shift()方法用于删除数组的第一个元素，并返回该元素。注意，该方法会改变原数组。</li>
+<li>unshift()方法用于在数组的第一个位置添加元素，并返回添加新元素后的数组长度。注意，该方法会改变原数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">a.shift() <span class="comment">// 'a'</span></span><br><span class="line">a <span class="comment">// ['b', 'c']</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line">b.unshift(<span class="string">'x'</span>); <span class="comment">// 4</span></span><br><span class="line">b <span class="comment">// ['x', 'a', 'b', 'c']</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [ <span class="string">'c'</span>, <span class="string">'d'</span> ];</span><br><span class="line">arr.unshift(<span class="string">'a'</span>, <span class="string">'b'</span>) <span class="comment">// 4</span></span><br><span class="line">arr <span class="comment">// [ 'a', 'b', 'c', 'd' ]</span></span><br></pre></td></tr></table></figure>
+<h5 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h5><ul>
+<li>join()方法以指定参数作为分隔符，将所有数组成员连接为一个字符串返回。如果不提供参数，默认用逗号分隔。</li>
+<li>通过call方法，这个方法也可以用于字符串或类似数组的对象。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.join.call(<span class="string">'hello'</span>, <span class="string">'-'</span>)</span><br><span class="line"><span class="comment">// "h-e-l-l-o"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="attr">length</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="built_in">Array</span>.prototype.join.call(obj, <span class="string">'-'</span>)</span><br><span class="line"><span class="comment">// 'a-b'</span></span><br></pre></td></tr></table></figure>
+<h5 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h5><ul>
+<li>concat方法用于多个数组的合并。它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，原数组不变。</li>
+</ul>
+<p>如果数组成员包括对象，concat方法返回当前数组的一个浅拷贝。所谓“浅拷贝”，指的是新数组拷贝的是对象的引用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> oldArray = [obj];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> newArray = oldArray.concat();</span><br><span class="line"></span><br><span class="line">obj.a = <span class="number">2</span>;</span><br><span class="line">newArray[<span class="number">0</span>].a <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h5><ul>
+<li>reverse方法用于颠倒排列数组元素，返回改变后的数组。注意，该方法将改变原数组。</li>
+</ul>
+<h5 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h5><ul>
+<li>slice方法用于提取目标数组的一部分，返回一个新数组，原数组不变。<code>arr.slice(start, end);</code></li>
+<li>slice方法的一个重要应用，是将类似数组的对象转为真正的数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.slice.call(&#123; <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>, <span class="attr">length</span>: <span class="number">2</span> &#125;)</span><br><span class="line"><span class="comment">// ['a', 'b']</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>));</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line"><span class="comment">//上面代码的参数都不是数组，</span></span><br><span class="line"><span class="comment">//但是通过call方法，在它们上面调用slice方法，就可以把它们转为真正的数组。</span></span><br></pre></td></tr></table></figure>
+<h5 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h5><ul>
+<li>splice方法用于删除原数组的一部分成员，并可以在删除的位置添加新的数组成员，返回值是被删除的元素。注意，该方法会改变原数组。</li>
+</ul>
+<h5 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h5><ul>
+<li>sort方法对数组成员进行排序，默认是按照字典顺序排序。排序后，原数组将被改变。</li>
+<li>sort方法不是按照大小排序，而是按照字典顺序。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'d'</span>, <span class="string">'c'</span>, <span class="string">'b'</span>, <span class="string">'a'</span>].sort()</span><br><span class="line"><span class="comment">// ['a', 'b', 'c', 'd']</span></span><br><span class="line"></span><br><span class="line">[<span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>].sort()</span><br><span class="line"><span class="comment">// [1, 2, 3, 4]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">11</span>, <span class="number">101</span>].sort()</span><br><span class="line"><span class="comment">// [101, 11]</span></span><br><span class="line"></span><br><span class="line">[<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort()</span><br><span class="line"><span class="comment">// [10111, 1101, 111]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果想让sort方法按照自定义方式排序，可以传入一个函数作为参数。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">10111</span>, <span class="number">1101</span>, <span class="number">111</span>].sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [111, 1101, 10111]</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，sort的参数函数本身接受两个参数，表示进行比较的两个数组成员。如果该函数的返回值大于0，表示第一个成员排在第二个成员后面；其他情况下，都是第一个元素排在第二个元素前面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"张三"</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"李四"</span>, <span class="attr">age</span>: <span class="number">24</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">"王五"</span>, <span class="attr">age</span>: <span class="number">28</span>  &#125;</span><br><span class="line">].sort(<span class="function"><span class="keyword">function</span> (<span class="params">o1, o2</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> o1.age - o2.age;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">//   &#123; name: "李四", age: 24 &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "王五", age: 28  &#125;,</span></span><br><span class="line"><span class="comment">//   &#123; name: "张三", age: 30 &#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br></pre></td></tr></table></figure>
+<h5 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h5><ul>
+<li>map方法将数组的所有成员依次传入参数函数，然后把每一次的执行结果组成一个<code>新数组</code>返回。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"></span><br><span class="line">numbers.map(<span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> n + <span class="number">1</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// [2, 3, 4]</span></span><br><span class="line"></span><br><span class="line">numbers</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//numbers数组的所有成员依次执行参数函数，运行结果组成一个新数组返回，原数组没有变化。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>map方法接受一个函数作为参数。该函数调用时，map方法向它传入三个参数：当前成员、当前位置和数组本身。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params">elem, index, arr</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> elem * index;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// [0, 2, 6]</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>map方法还可以接受第二个参数，用来绑定回调函数内部的this变量</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>[e];</span><br><span class="line">&#125;, arr)</span><br><span class="line"><span class="comment">// ['b', 'c']</span></span><br><span class="line"><span class="comment">// 上面代码通过map方法的第二个参数，将回调函数内部的this对象，指向arr数组。</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果数组有空位，map方法的回调函数在这个位置不会执行，会跳过数组的空位。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params">n</span>) </span>&#123; <span class="keyword">return</span> <span class="string">'a'</span> &#125;;</span><br><span class="line"></span><br><span class="line">[<span class="number">1</span>, <span class="literal">undefined</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, <span class="literal">null</span>, <span class="number">2</span>].map(f) <span class="comment">// ["a", "a", "a"]</span></span><br><span class="line">[<span class="number">1</span>, , <span class="number">2</span>].map(f) <span class="comment">// ["a", , "a"]</span></span><br><span class="line"><span class="comment">//上面代码中，map方法不会跳过undefined和null，但是会跳过空位。</span></span><br></pre></td></tr></table></figure>
+<h5 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h5><ul>
+<li>forEach方法与map方法很相似，也是对数组的所有成员依次执行参数函数。但是，forEach方法不返回值，只用来操作数据。</li>
+<li>如果数组遍历的目的是为了得到返回值，那么使用map方法，否则使用forEach方法。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">element, index, array</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'['</span> + index + <span class="string">'] = '</span> + element);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[<span class="number">2</span>, <span class="number">5</span>, <span class="number">9</span>].forEach(log);</span><br><span class="line"><span class="comment">// [0] = 2</span></span><br><span class="line"><span class="comment">// [1] = 5</span></span><br><span class="line"><span class="comment">// [2] = 9</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>forEach方法<code>无法中断执行</code>，总是会将所有成员遍历完。如果希望符合某种条件时，就中断遍历，要使用for循环。</li>
+</ul>
+<h5 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h5><ul>
+<li>filter方法用于过滤数组成员，满足条件的成员组成一个新数组返回。</li>
+<li>它的参数是一个函数，所有数组成员依次执行该函数，返回结果为true的成员组成一个新数组返回。</li>
+<li>该方法不会改变原数组。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>].filter(<span class="function"><span class="keyword">function</span> (<span class="params">elem</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (elem &gt; <span class="number">3</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// [4, 5]</span></span><br></pre></td></tr></table></figure>
+<h5 id="some-，every"><a href="#some-，every" class="headerlink" title="some()，every()"></a>some()，every()</h5><ul>
+<li>这两个方法类似“断言”（assert），返回一个布尔值，表示判断数组成员是否符合某种条件。</li>
+<li>它们接受一个函数作为参数，所有数组成员依次执行该函数。该函数接受三个参数：当前成员、当前位置和整个数组，然后返回一个布尔值。</li>
+<li>some方法是只要一个成员的返回值是true，则整个some方法的返回值就是true，否则返回false。</li>
+<li>every方法是所有成员的返回值都是true，整个every方法才返回true，否则返回false。</li>
+<li>对于空数组，some方法返回false，every方法返回true，回调函数都不会执行。</li>
+</ul>
+<h5 id="reduce-，reduceRight"><a href="#reduce-，reduceRight" class="headerlink" title="reduce()，reduceRight()"></a>reduce()，reduceRight()</h5><ul>
+<li>reduce方法和reduceRight方法依次处理数组的每个成员，最终累计为一个值。</li>
+<li>reduce是从左到右处理（从第一个成员到最后一个成员），reduceRight则是从右到左（从最后一个成员到第一个成员），其他完全一样。</li>
+</ul>
+<h5 id="indexOf-，lastIndexOf"><a href="#indexOf-，lastIndexOf" class="headerlink" title="indexOf()，lastIndexOf()"></a>indexOf()，lastIndexOf()</h5><ul>
+<li>indexOf方法返回给定元素在数组中第一次出现的位置，如果没有出现则返回-1。</li>
+<li>indexOf方法还可以接受第二个参数，表示搜索的开始位置。</li>
+<li>lastIndexOf方法返回给定元素在数组中最后一次出现的位置，如果没有出现则返回-1。</li>
+<li>注意，这两个方法不能用来搜索NaN的位置，即它们无法确定数组成员是否包含NaN。这是因为这两个方法内部，使用严格相等运算符（===）进行比较，而NaN是唯一一个不等于自身的值。</li>
+</ul>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/09/29/JavaScrip学习笔记/" data-id="cjohytrso0000up9kce4iis3r" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS学习/">JS学习</a></li></ul>
+        </div>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2018/10/18/数据结构学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2018-12-06T12:00:20+08:00" content="2018-12-06">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2018-12-06
+            </time>
+            
+                
+                <div class="tags">
+                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                    <a class="tag" href="/tags/JS学习/">JS学习</a>
+                </div>
+            
+        </section>
+
         
-          数据结构学习
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                            <h4>
+                                <a href="/2018/10/18/数据结构学习/" rel="prev" title="数据结构学习">
+                                  
+                                      数据结构学习
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/数据结构、算法/">数据结构、算法</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2018/07/27/hello-world/" rel="prev" title="Hello World">
+                                    
+                                        Hello World
+                                    
+                                </a>
+                            </h4>
+                            
+                        </span>
+                    </section>
+                
+            </div>
         
-      </div>
-    </a>
-  
-  
-    <a href="/2018/07/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
 
-  
+    </section>
+
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
+<br>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS学习/">JS学习</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构、算法/">数据结构、算法</a></li></ul>
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://yoursite.com/2018/10/31/Git知识总结/">Git知识总结</a></li>
+            
+                <li><a href="http://yoursite.com/2018/10/18/数据结构学习/">数据结构学习</a></li>
+            
+                <li><a href="http://yoursite.com/2018/07/27/hello-world/">Hello World</a></li>
+            
+                <li><a href="http://yoursite.com/2018/07/27/静态库、动态库与FrameWork/">静态库、动态库与FrameWork</a></li>
+            
+        </ul>
     </div>
-  </div>
 
 
-  
+            
+
+            
+
+                
+
+                
+
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'JavaScrip学习笔记',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/JS学习/" style="font-size: 10px;">JS学习</a> <a href="/tags/数据结构、算法/" style="font-size: 10px;">数据结构、算法</a>
-    </div>
-  </div>
-
-  
+        
+  <section class="m_widget author">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
+      <div class="header">
+        <img class="avatar" src="https://raw.githubusercontent.com/dingxinxx/dingxinxx.github.io/master/images/avatar.png">
+      </div>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
+    
+    
+      <div class="social-wrapper">
         
-          <li>
-            <a href="/2018/10/31/Git知识总结/">Git知识总结</a>
-          </li>
+          
+            <a href="mailto:dingxin20@126.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
         
-          <li>
-            <a href="/2018/10/18/数据结构学习/">数据结构学习</a>
-          </li>
+          
+            <a href="https://github.com/dingxinxx" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
         
-          <li>
-            <a href="/2018/09/29/JavaScrip学习笔记/">JavaScrip学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/27/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/27/静态库、动态库与FrameWork/">静态库、动态库与FrameWork</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
+          
+            <a href="https://music.163.com/#/user/home?id=38961017" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 Ding Xin<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    
+  </section>
+
+
+    
+    
+        
+  <section class="m_widget announcement">
+    <header class="header pure">
+        <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;公告</div>
+    </header>
+    <div class="content pure">
+      欢迎访问我的博客，希望这里的内容能对你有所帮助
     </div>
-  </div>
-</footer>
+  </section>
+
+
+    
+    
+        <section class="m_widget categories">
+    <header class="header pure">
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class="content pure">
+        
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</section>
+
+    
+    
+        
+    <section class="m_widget tagcloud">
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class="content pure">
+            <a href="/tags/JS学习/" style="font-size: 14px; color: #999">JS学习</a> <a href="/tags/数据结构、算法/" style="font-size: 14px; color: #999">数据结构、算法</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#系列教程"><span class="toc-text">系列教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#当前进度"><span class="toc-text">当前进度</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习笔记"><span class="toc-text">学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#闭包"><span class="toc-text">闭包</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运算符"><span class="toc-text">运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制位运算符"><span class="toc-text">二进制位运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#开关作用"><span class="toc-text">开关作用</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#void-运算符-链接"><span class="toc-text">void 运算符 链接</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据类型的转换"><span class="toc-text">数据类型的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#强制转换"><span class="toc-text">强制转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Number"><span class="toc-text">Number()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#错误处理机制"><span class="toc-text">错误处理机制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Error-实例对象"><span class="toc-text">Error 实例对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义错误"><span class="toc-text">自定义错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#throw-语句"><span class="toc-text">throw 语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#try…catch-结构"><span class="toc-text">try…catch 结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Array对象"><span class="toc-text">Array对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#静态方法"><span class="toc-text">静态方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Array-isArray"><span class="toc-text">Array.isArray()</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例方法"><span class="toc-text">实例方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#valueOf-，toString"><span class="toc-text">valueOf()，toString()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#push-，pop"><span class="toc-text">push()，pop()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#shift-，unshift"><span class="toc-text">shift()，unshift()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#join"><span class="toc-text">join()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#concat"><span class="toc-text">concat()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reverse"><span class="toc-text">reverse()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#slice"><span class="toc-text">slice()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#splice"><span class="toc-text">splice()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sort"><span class="toc-text">sort()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#map"><span class="toc-text">map()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#forEach"><span class="toc-text">forEach()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#filter"><span class="toc-text">filter()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#some-，every"><span class="toc-text">some()，every()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#reduce-，reduceRight"><span class="toc-text">reduce()，reduceRight()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#indexOf-，lastIndexOf"><span class="toc-text">indexOf()，lastIndexOf()</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class="m_widget music">
+    <header class="header pure">
+        <div><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;音乐</div>
+        <a class="rightBtn" title="打开博主的网易云音乐主页" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/playlist?id=726507736"><i class="fas fa-external-link-square-alt fa-fw"></i></a>
+    </header>
+    <div class="content pure">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="450" src="//music.163.com/outchain/player?type=0&id=726507736&auto=0&height=450"></iframe>
+    </div>
+</section>
+
+    
+    
+        <section class="m_widget links">
+    <header class="header pure">
+        <div><i class="fas fa-handshake fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;友链</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:dingxin20@126.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【在路上】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class="content pure">
+        <ul class="entry" id="links">
+            
+                <li><a class="flat-box" title="https://xaoxuu.com/blog" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com/blog">
+                    <div class="name">
+                        
+                            <img src="https://xaoxuu.com/assets/img/avatar.jpg">
+                        
+                        &nbsp;&nbsp;xaoxuu&#39;s blog
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:dingxin20@126.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/dingxinxx" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://music.163.com/#/user/home?id=38961017" class="social fas fa-music flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
-<script src="/js/script.js"></script>
+<script src="/js/jquery.fitvids.js"></script>
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+    
+    
+    
 
 
 
-  </div>
+
+
+    <script>setLoadingBarProgress(100);</script>
 </body>
-</html>
