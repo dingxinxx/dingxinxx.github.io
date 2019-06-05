@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Archives: 2018/12 | 在路上</title>
+  <title>Tag: React-Native, JavaScript | 在路上</title>
   
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,9 +123,8 @@
     <div class='container clearfix'>
         <div class='l_main'>
             
-	
     <script>
-        window.subData= { title:'year : 2018.12'}
+        window.subData= { title:'标签 : React-Native, JavaScript'}
     </script>
 
 
@@ -135,27 +134,39 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/12/07/Javascript中版本号大小比较/">
+            <a href="/2019/06/05/RN手势响应系统总结/">
                 
-                    JavaScript版本号大小比较
+                    RN手势响应系统总结
                 
             </a>
         </h2>
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-07
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-06-05
         </time>
         
 
     </section>
 
     <section class="article typo">
-        <blockquote>
-<p>App的版本号”6.2.3”跟”10.5.6”比较，那个比较大呢？这个问题相信移动端的原生开发同学一定不会陌生，那么在JavaScript中如何处理类似的问题呢？</p>
-</blockquote>
-<p>最近在RN的开发过程中遇到了一个问题：由于RN中调用了原生模块的某个功能，但是该功能只在大于等于特定版本号的APP中才提供支持。<br>所以需要在JS代码中获取宿主APP的版本号，然后根据版本号的大小来进行适配。这样就面临着一个用JS代码进行版本号大小的比较的问题。</p>
+        <h2 id="响应者的生命周期"><a href="#响应者的生命周期" class="headerlink" title="响应者的生命周期"></a>响应者的生命周期</h2><h3 id="生命周期方法列表"><a href="#生命周期方法列表" class="headerlink" title="生命周期方法列表"></a>生命周期方法列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span> View.props.onStartShouldSetResponderCapture: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span> </span><br><span class="line"><span class="number">2.</span> View.props.onMoveShouldSetResponderCapture: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">3.</span> View.props.onStartShouldSetResponder: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">4.</span> View.props.onMoveShouldSetResponder: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">5.</span> View.props.onResponderGrant: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">6.</span> View.props.onResponderReject: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">7.</span> View.props.onResponderMove: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">8.</span> View.props.onResponderRelease: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">9.</span> View.props.onResponderTerminationRequest: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">10.</span> View.props.onResponderTerminate: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>evt是一个合成事件，它包含以下结构：</p>
+<ul>
+<li>nativeEvent<ul>
+<li>changedTouches - 在上一次事件之后，所有发生变化的触摸事件的数组集合（即上一次事件后，所有移动过的触摸点）</li>
+<li>identifier - 触摸点的 ID</li>
+<li>locationX - 触摸点相对于当前元素的横坐标</li>
+<li>locationY - 触摸点相对于当前元素的纵坐标</li>
+<li>pageX - 触摸点相对于根元素的横坐标</li>
+<li>pageY - 触摸点相对于根元素的纵坐标</li>
+<li>target - 触摸点所在的元素 ID</li>
+<li>timestamp - 触摸事件的时间戳，可用于移动速度的计算</li>
+<li>touches - 当前屏幕上的所有触摸点的集合</li>
+</ul>
+</li>
+</ul>
         
             <div class="readmore">
-                <a href="/2018/12/07/Javascript中版本号大小比较/" class="flat-box">
+                <a href="/2019/06/05/RN手势响应系统总结/" class="flat-box">
                     <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
                     阅读全文
                 </a>
@@ -165,7 +176,7 @@
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/JavaScript/"><i class="fas fa-tag fa-fw"></i>&nbsp;JavaScript</a>
+                    <a href="/tags/React-Native-JavaScript/"><i class="fas fa-tag fa-fw"></i>&nbsp;React-Native, JavaScript</a>
                 
             </div>
         
@@ -175,8 +186,6 @@
         </div>
     
 </section>
-
-
 
 
 
