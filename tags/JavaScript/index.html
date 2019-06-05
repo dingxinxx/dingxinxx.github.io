@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Tag: JS学习 | 在路上</title>
+  <title>Tag: JavaScript | 在路上</title>
   
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -26,6 +26,16 @@
       document.getElementById('loading-bar').style.width=num+"%";
     }
   </script>
+  
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?75d787850db0d37ea1c8ad895939cb1c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
   
 </head>
 </html>
@@ -114,7 +124,7 @@
         <div class='l_main'>
             
     <script>
-        window.subData= { title:'标签 : JS学习'}
+        window.subData= { title:'标签 : JavaScript'}
     </script>
 
 
@@ -124,32 +134,46 @@
             <article class="post reveal ">
     <section class="meta">
         <h2 class="title">
-            <a href="/2018/09/29/JavaScrip学习笔记/">
+            <a href="/2019/06/05/关于React-Native-React-中的类型检查/">
                 
-                    JavaScrip学习笔记
+                    关于React-Native(React)中的类型检查
                 
             </a>
         </h2>
         <time class="time">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-09-29
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2019-06-05
         </time>
         
 
     </section>
 
     <section class="article typo">
-        <h2 id="系列教程"><a href="#系列教程" class="headerlink" title="系列教程"></a>系列教程</h2><hr>
+        <blockquote>
+<p>参考资料： <a href="https://react.docschina.org/docs/typechecking-with-proptypes.html" target="_blank" rel="noopener">使用 PropTypes 进行类型检查</a>、<a href="https://www.jianshu.com/p/73bb6f75ed31" target="_blank" rel="noopener">ReactNative之PropTypes（七）</a>、<a href="https://juejin.im/post/5b0bb85af265da091337d236" target="_blank" rel="noopener">React 快速上手 - 10 类型检查 PropTypes</a></p>
+</blockquote>
+<h2 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h2><h3 id="为什么要类型检查"><a href="#为什么要类型检查" class="headerlink" title="为什么要类型检查"></a>为什么要类型检查</h3><blockquote>
+<p>我们先来看一份 rollbar 公司对 1000+ 项目的错误回收分析 top10 几乎都是因为类型而发生的错误</p>
+<p>文章参考: <a href="https://link.juejin.im/?target=https%3A%2F%2Frollbar.com%2Fblog%2Ftop-10-javascript-errors%2F" target="_blank" rel="noopener">Top 10 JavaScript errors from 1000+ projects</a></p>
+<p>比如定义 let prodList = [] , 你代码中 prodList.push(…)</p>
+<p>但是初始的时候被设置 prodList = 123 而且没有任何提示, 那运行 push(…) 肯定要报未知方法的错误</p>
+<p>这种问题在自由的 JavaScript 世界很普遍，如果在 编译 运行 两个阶段都没提示的话，排错是很麻烦的，全靠经验和对业务的熟悉 (陈年老项目又没文档简直是地狱)</p>
+<p>所以我们要把问题消灭在萌芽中，就是申明对象的时候同时把类型也定义掉了， react 的自带方案是 PropTypes 组件</p>
+</blockquote>
+<blockquote>
+<p>摘自：<a href="https://juejin.im/post/5b0bb85af265da091337d236" target="_blank" rel="noopener">React 快速上手 - 10 类型检查 PropTypes</a></p>
+</blockquote>
 <ul>
-<li>网道（阮一峰系列） <a href="https://wangdoc.com/javascript/" target="_blank" rel="noopener">《JavaScript 教程》</a></li>
+<li>类型错误（TypeError）是JavaScript世界很普遍的一种错误</li>
+<li>类型错误 在<strong>编译</strong>、<strong>运行</strong> 两个阶段都没有提示，由于JS的这个特性，这种错误排错比较麻烦</li>
+<li>解决方案：<ul>
+<li>可以使用 <strong>Flow</strong> 或 <strong>TypeScript</strong> 等 JavaScript 扩展来对整个应用程序做类型检查</li>
+<li>React 也内置了一些类型检查的功能,自带方案是 <strong>PropTypes</strong> 组件</li>
 </ul>
-<h3 id="当前进度"><a href="#当前进度" class="headerlink" title="当前进度"></a>当前进度</h3><ul>
-<li>Number 对象 <a href="https://wangdoc.com/javascript/stdlib/number.html" target="_blank" rel="noopener">链接</a></li>
+</li>
 </ul>
-<h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><hr>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h4><p>闭包的最大用处有两个</p>
         
             <div class="readmore">
-                <a href="/2018/09/29/JavaScrip学习笔记/" class="flat-box">
+                <a href="/2019/06/05/关于React-Native-React-中的类型检查/" class="flat-box">
                     <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
                     阅读全文
                 </a>
@@ -159,7 +183,50 @@
         
             <div class="full-width auto-padding tags">
                 
-                    <a href="/tags/JS学习/"><i class="fas fa-tag fa-fw"></i>&nbsp;JS学习</a>
+                    <a href="/tags/JavaScript/"><i class="fas fa-tag fa-fw"></i>&nbsp;JavaScript</a>
+                
+            </div>
+        
+    </section>
+</article>
+
+        </div>
+    
+        <div class="post-wrapper">
+            <article class="post reveal ">
+    <section class="meta">
+        <h2 class="title">
+            <a href="/2018/12/07/Javascript中版本号大小比较/">
+                
+                    JavaScript版本号大小比较
+                
+            </a>
+        </h2>
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;2018-12-07
+        </time>
+        
+
+    </section>
+
+    <section class="article typo">
+        <blockquote>
+<p>App的版本号”6.2.3”跟”10.5.6”比较，那个比较大呢？这个问题相信移动端的原生开发同学一定不会陌生，那么在JavaScript中如何处理类似的问题呢？</p>
+</blockquote>
+<p>最近在RN的开发过程中遇到了一个问题：由于RN中调用了原生模块的某个功能，但是该功能只在大于等于特定版本号的APP中才提供支持。<br>所以需要在JS代码中获取宿主APP的版本号，然后根据版本号的大小来进行适配。这样就面临着一个用JS代码进行版本号大小的比较的问题。</p>
+        
+            <div class="readmore">
+                <a href="/2018/12/07/Javascript中版本号大小比较/" class="flat-box">
+                    <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+                    阅读全文
+                </a>
+            </div>
+        
+
+        
+            <div class="full-width auto-padding tags">
+                
+                    <a href="/tags/JavaScript/"><i class="fas fa-tag fa-fw"></i>&nbsp;JavaScript</a>
                 
             </div>
         
@@ -236,7 +303,7 @@
             <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
         </header>
         <div class="content pure">
-            <a href="/tags/JS学习/" style="font-size: 14px; color: #999">JS学习</a> <a href="/tags/数据结构、算法/" style="font-size: 14px; color: #999">数据结构、算法</a>
+            <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/JavaScript-ES6/" style="font-size: 14px; color: #999">JavaScript, ES6</a> <a href="/tags/JavaScrip学习/" style="font-size: 14px; color: #999">JavaScrip学习</a> <a href="/tags/数据结构、算法/" style="font-size: 14px; color: #999">数据结构、算法</a>
         </div>
     </section>
 
