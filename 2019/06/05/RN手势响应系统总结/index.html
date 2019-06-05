@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>RN手势响应系统总结 | 在路上</title>
+  
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" href="/">
+  <link rel="alternate" href="/atom.xml" title="在路上">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="shortcut icon" href="">
+  <link rel="icon" href="">
+  
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu|Ubuntu+Mono" rel="stylesheet">
+  
+  <!-- <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link href="//cdn.bootcss.com/node-waves/0.7.5/waves.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?75d787850db0d37ea1c8ad895939cb1c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  
+</head>
+</html>
+<body>
+    <div id="loading-bar-wrapper">
+  <div id="loading-bar" class="pure"></div>
+</div>
+
+    <script>setLoadingBarProgress(20)</script>
+    <header class="l_header pure">
+	<div class="wrapper">
+		<div class="nav-main container container--flex">
+			<a class="logo flat-box" href="/">在路上</a>
+				<div class="menu">
+					<ul class="h-list">
+            
+    					
+    						<li>
+    							<a class="nav flat-box" href="/">
+    								<i class="fas fa-rss fa-fw"></i>&nbsp;博客
+  								</a>
+  							</li>
+        			
+    						<li>
+    							<a class="nav flat-box" href="/archives/">
+    								<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+  								</a>
+  							</li>
+        			
+        		
+					</ul>
+					<div class="underline"></div>
+				</div>
+
+			
+				<div class="m_search">
+					<form name="searchform" class="form u-search-form">
+						<input type="text" class="input u-search-input" placeholder="Search">
+						<span class="icon"><i class="fas fa-search fa-fw"></i></span>
+					</form>
+				</div>
+			
+			<ul class="switcher h-list">
+				
+					<li class="s-search"><a class="fas fa-search fa-fw" href="javascript:void(0)"></a></li>
+				
+				<li class="s-menu"><a class="fas fa-bars fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+
+		<div class="nav-sub container container--flex">
+			<a class="logo flat-box"></a>
+			<ul class="switcher h-list">
+				<li class="s-comment"><a class="fas fa-comments fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-top"><a class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a></li>
+				<li class="s-toc"><a class="fas fa-list fa-fw" href="javascript:void(0)"></a></li>
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone">
+		<nav>
+      <ul>
+          
+              
+                  <li>
+										<a class="nav  flat-box" href="/">
+											<i class="fas fa-rss fa-fw"></i>&nbsp;博客
+										</a>
+                  </li>
+              
+                  <li>
+										<a class="nav  flat-box" href="/archives/">
+											<i class="fas fa-archive fa-fw"></i>&nbsp;归档
+										</a>
+                  </li>
+              
+       
+      </ul>
+		</nav>
+	</aside>
+
+    <script>setLoadingBarProgress(40);</script>
+    <div class="l_body">
+    <div class='container clearfix'>
+        <div class='l_main'>
+            <article id="post-RN手势响应系统总结" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+    <section class="meta">
+        
+            <h1 class="title">RN手势响应系统总结</h1>
+        
+        <time class="time">
+            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+            2019-06-05
+        </time>
+        
+          <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+            <span id="busuanzi_value_page_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+          </div>
+        
+
+        
+
+    </section>
+
+    <section class="article typo">
+
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="响应者的生命周期"><a href="#响应者的生命周期" class="headerlink" title="响应者的生命周期"></a>响应者的生命周期</h2><h3 id="生命周期方法列表"><a href="#生命周期方法列表" class="headerlink" title="生命周期方法列表"></a>生命周期方法列表</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span> View.props.onStartShouldSetResponderCapture: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span> </span><br><span class="line"><span class="number">2.</span> View.props.onMoveShouldSetResponderCapture: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">3.</span> View.props.onStartShouldSetResponder: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">4.</span> View.props.onMoveShouldSetResponder: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">5.</span> View.props.onResponderGrant: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">6.</span> View.props.onResponderReject: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">7.</span> View.props.onResponderMove: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">8.</span> View.props.onResponderRelease: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="number">9.</span> View.props.onResponderTerminationRequest: <span class="function">(<span class="params">evt</span>) =&gt;</span> <span class="literal">true</span></span><br><span class="line"><span class="number">10.</span> View.props.onResponderTerminate: <span class="function">(<span class="params">evt</span>) =&gt;</span> &#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>evt是一个合成事件，它包含以下结构：</p>
+<ul>
+<li>nativeEvent<ul>
+<li>changedTouches - 在上一次事件之后，所有发生变化的触摸事件的数组集合（即上一次事件后，所有移动过的触摸点）</li>
+<li>identifier - 触摸点的 ID</li>
+<li>locationX - 触摸点相对于当前元素的横坐标</li>
+<li>locationY - 触摸点相对于当前元素的纵坐标</li>
+<li>pageX - 触摸点相对于根元素的横坐标</li>
+<li>pageY - 触摸点相对于根元素的纵坐标</li>
+<li>target - 触摸点所在的元素 ID</li>
+<li>timestamp - 触摸事件的时间戳，可用于移动速度的计算</li>
+<li>touches - 当前屏幕上的所有触摸点的集合</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h3 id="生命周期方法详解"><a href="#生命周期方法详解" class="headerlink" title="生命周期方法详解"></a>生命周期方法详解</h3><h4 id="捕获-ShouldSet-事件处理"><a href="#捕获-ShouldSet-事件处理" class="headerlink" title="捕获 ShouldSet 事件处理"></a>捕获 ShouldSet 事件处理</h4><ul>
+<li><code>View.props.onStartShouldSetResponderCapture: (evt) =&gt; true</code> </li>
+<li><code>View.props.onMoveShouldSetResponderCapture: (evt) =&gt; true</code></li>
+</ul>
+<blockquote>
+<p>“是否愿意成为响应者”系列方法：onStartShouldSetResponder与onMoveShouldSetResponder是以冒泡的形式调用的，即嵌套最深的节点最先调用。这意味着当多个 View 同时在*ShouldSetResponder中返回 true 时，最底层的 View 将优先“夺权”。在多数情况下这并没有什么问题，因为这样可以确保所有控件和按钮是可用的。</p>
+</blockquote>
+<blockquote>
+<p>但是有些时候，某个父 View 会希望能先成为响应者。我们可以利用“捕获期”来解决这一需求。响应系统在从最底层的组件开始冒泡之前，会首先执行一个“捕获期”，在此期间会触发on*ShouldSetResponderCapture系列事件。因此，如果某个父 View 想要在触摸操作开始时阻止子组件成为响应者，那就应该处理onStartShouldSetResponderCapture事件并返回 true 值。</p>
+</blockquote>
+<h4 id="是否愿意成为响应者"><a href="#是否愿意成为响应者" class="headerlink" title="是否愿意成为响应者"></a>是否愿意成为响应者</h4><ul>
+<li><code>View.props.onStartShouldSetResponder: (evt) =&gt; true</code> 在用户开始触摸的时候（手指刚刚接触屏幕的瞬间），是否愿意成为响应者？</li>
+<li><code>View.props.onMoveShouldSetResponder: (evt) =&gt; true</code> 如果 View 不是响应者，那么在每一个触摸点开始移动（没有停下也没有离开屏幕）时再询问一次：是否愿意响应触摸交互呢？</li>
+</ul>
+<h4 id="尝试成为响应者"><a href="#尝试成为响应者" class="headerlink" title="尝试成为响应者"></a>尝试成为响应者</h4><ul>
+<li><code>View.props.onResponderGrant: (evt) =&gt; {}</code> View 现在要开始响应触摸事件了。这也是需要做高亮的时候，使用户知道他到底点到了哪里</li>
+<li><code>View.props.onResponderReject: (evt) =&gt; {}</code> 响应者现在“另有其人”而且暂时不会“放权”，请另作安排。</li>
+</ul>
+<h4 id="开始响应触摸事件"><a href="#开始响应触摸事件" class="headerlink" title="开始响应触摸事件"></a>开始响应触摸事件</h4><ul>
+<li><code>View.props.onResponderMove: (evt) =&gt; {}</code> 用户正在屏幕上移动手指时（没有停下也没有离开屏幕）。</li>
+<li><code>View.props.onResponderRelease: (evt) =&gt; {}</code> 触摸操作结束时触发，比如”touchUp”（手指抬起离开屏幕）。</li>
+<li><code>View.props.onResponderTerminationRequest: (evt) =&gt; true</code> 有其他组件请求接替响应者，当前的 View 是否“放权”？返回 true 的话则释放响应者权力。</li>
+<li><code>View.props.onResponderTerminate: (evt) =&gt; {}</code>  响应者权力已经交出。这可能是由于其他 View 通过<strong>onResponderTerminationRequest</strong>请求的，也可能是由操作系统强制夺权（比如 iOS 上的控制中心或是通知中心）。</li>
+</ul>
+<h2 id="封装手势"><a href="#封装手势" class="headerlink" title="封装手势"></a>封装手势</h2><p>可以认为是对手势响应生命周期方法的模板封装,与gesture responder system 比起来，<code>封装手势</code>方法的抽象程度更高，使用起来也更加方便</p>
+<h3 id="PanResponder"><a href="#PanResponder" class="headerlink" title="PanResponder"></a>PanResponder</h3><h4 id="响应事件"><a href="#响应事件" class="headerlink" title="响应事件"></a>响应事件</h4><h5 id="事件方法列表"><a href="#事件方法列表" class="headerlink" title="事件方法列表"></a>事件方法列表</h5><ol>
+<li>onMoveShouldSetPanResponder: (evt, gestureState) =&gt; {…}</li>
+<li>onMoveShouldSetPanResponderCapture: (evt, gestureState) =&gt; {…}</li>
+<li>onStartShouldSetPanResponder: (evt, gestureState) =&gt; {…}</li>
+<li>onStartShouldSetPanResponderCapture: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderReject: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderGrant: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderStart: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderEnd: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderRelease: (evt, gestureState) =&gt; {…} //用户手指离开屏幕时，调用该方法</li>
+<li>onPanResponderMove: (evt, gestureState) =&gt; {…} //用户滑动手指时，调用该方法</li>
+<li>onPanResponderTerminate: (evt, gestureState) =&gt; {…}</li>
+<li>onPanResponderTerminationRequest: (evt, gestureState) =&gt; {…}</li>
+<li>onShouldBlockNativeResponder: (evt, gestureState) =&gt; {…}</li>
+</ol>
+<h5 id="说明"><a href="#说明" class="headerlink" title="说明:"></a>说明:</h5><ul>
+<li><p>相比gesture responder syste的响应事件方法多了一个<strong>gestureState</strong>对象参数。</p>
+<blockquote>
+<p>例如：<code>onPanResponderMove: (event, gestureState) =&gt; {}</code></p>
+</blockquote>
+</li>
+<li><p>一个<strong>gestureState</strong>对象有如下的字段：</p>
+<ul>
+<li>stateID - 触摸状态的 ID。在屏幕上有至少一个触摸点的情况下，这个 ID 会一直有效。</li>
+<li>moveX - 最近一次移动时的屏幕横坐标</li>
+<li>moveY - 最近一次移动时的屏幕纵坐标</li>
+<li>x0 - 当响应器产生时的屏幕坐标</li>
+<li>y0 - 当响应器产生时的屏幕坐标</li>
+<li>dx - 从触摸操作开始时的累计横向路程</li>
+<li>dy - 从触摸操作开始时的累计纵向路程</li>
+<li>vx - 当前的横向移动速度</li>
+<li>vy - 当前的纵向移动速度</li>
+<li>numberActiveTouches - 当前在屏幕上的有效触摸点的数量</li>
+</ul>
+</li>
+<li><p>两个参数的作用</p>
+<ul>
+<li>evt<ul>
+<li>获取触摸的位置在被响应的 View 中的相对坐标</li>
+<li>evt.nativeEvent.locationX 和 evt.nativeEvent.locationY（这个方法很实用）  </li>
+</ul>
+</li>
+<li>gestureState<ul>
+<li>dx/dy：手势进行到现在的横向/纵向相对位移 </li>
+<li>vx/vy：此刻的横向/纵向速度 </li>
+<li>numberActiveTouches：responder上的触摸的个数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">componentWillMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>._panResponder = PanResponder.create(&#123;</span><br><span class="line">    <span class="comment">// 要求成为响应者：</span></span><br><span class="line">    onStartShouldSetPanResponder: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">    onStartShouldSetPanResponderCapture: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">    onMoveShouldSetPanResponder: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">    onMoveShouldSetPanResponderCapture: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> <span class="literal">true</span>,</span><br><span class="line"></span><br><span class="line">    onPanResponderGrant: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 开始手势操作。给用户一些视觉反馈，让他们知道发生了什么事情！</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// gestureState.&#123;x,y&#125; 现在会被设置为0</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onPanResponderMove: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 最近一次的移动距离为gestureState.move&#123;X,Y&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 从成为响应者开始时的累计手势移动距离为gestureState.d&#123;x,y&#125;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onPanResponderTerminationRequest: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">    onPanResponderRelease: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 用户放开了所有的触摸点，且此时视图已经成为了响应者。</span></span><br><span class="line">      <span class="comment">// 一般来说这意味着一个手势操作已经成功完成。</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onPanResponderTerminate: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 另一个组件已经成为了新的响应者，所以当前手势将被取消。</span></span><br><span class="line">    &#125;,</span><br><span class="line">    onShouldBlockNativeResponder: <span class="function">(<span class="params">evt, gestureState</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 返回一个布尔值，决定当前组件是否应该阻止原生组件成为JS响应者</span></span><br><span class="line">      <span class="comment">// 默认返回true。目前暂时只支持android。</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;View &#123;...this._panResponder.panHandlers&#125; /&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<h5 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h5><ul>
+<li><p><a href="https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js" target="_blank" rel="noopener">官方示例</a></p>
+</li>
+<li><p>简单的拖拽示例</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">	View,</span><br><span class="line">	StyleSheet,</span><br><span class="line">	PanResponder</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QQAndGameHome</span> <span class="keyword">extends</span> <span class="title">PureComponent</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> contextTypes = &#123;</span><br><span class="line">        router: PropTypes.object,</span><br><span class="line">        store: PropTypes.object</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            top: JDDevice.getRpx(<span class="number">100</span>),</span><br><span class="line">            left: JDDevice.getRpx(<span class="number">100</span>),</span><br><span class="line">            bg: <span class="string">'gray'</span>,</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.panResponder = PanResponder.create(&#123;</span><br><span class="line">            onStartShouldSetPanResponder: <span class="function"><span class="params">()</span> =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">            onMoveShouldSetPanResponderCapture: <span class="function"><span class="params">()</span> =&gt;</span> <span class="literal">true</span>,</span><br><span class="line">            onPanResponderGrant: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>._top = <span class="keyword">this</span>.state.top;</span><br><span class="line">                <span class="keyword">this</span>._left = <span class="keyword">this</span>.state.left;</span><br><span class="line">                <span class="keyword">this</span>.setState(&#123;<span class="attr">bg</span>: <span class="string">'red'</span>&#125;);</span><br><span class="line">            &#125;,</span><br><span class="line">            onPanResponderMove: <span class="function">(<span class="params">evt, gs</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="built_in">console</span>.log(gs.dx+<span class="string">' '</span>+gs.dy);</span><br><span class="line">                <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                    top: <span class="keyword">this</span>._top+gs.dy,</span><br><span class="line">                    left: <span class="keyword">this</span>._left+gs.dx</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;,</span><br><span class="line"></span><br><span class="line">            onPanResponderRelease: <span class="function">(<span class="params">evt, gs</span>)=&gt;</span>&#123;</span><br><span class="line">                <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                    bg: <span class="string">'gray'</span>,</span><br><span class="line">                    top: <span class="keyword">this</span>._top+gs.dy,</span><br><span class="line">                    left: <span class="keyword">this</span>._left+gs.dx</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    render() &#123;</span><br><span class="line">    	<span class="keyword">return</span>(</span><br><span class="line">    		&lt;View</span><br><span class="line">    			&#123;...this.panResponder.panHandlers&#125;</span><br><span class="line">    			style=&#123;[myStyles.rect,&#123;</span><br><span class="line">    				<span class="string">"backgroundColor"</span>: <span class="keyword">this</span>.state.bg,</span><br><span class="line">    				<span class="string">"top"</span>: <span class="keyword">this</span>.state.top,</span><br><span class="line">    				<span class="string">"left"</span>: <span class="keyword">this</span>.state.left</span><br><span class="line">    				&#125;]&#125;</span><br><span class="line">    		&gt;</span><br><span class="line">    		...</span><br><span class="line">    		&lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    	)</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">    </span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const myStyles = StyleSheet.create(&#123;</span></span><br><span class="line"><span class="regexp">    rect: &#123;</span></span><br><span class="line"><span class="regexp">        position: 'absolute',</span></span><br><span class="line"><span class="regexp">        width: JDDevice.getRpx(100),</span></span><br><span class="line"><span class="regexp">        height: JDDevice.getRpx(100),</span></span><br><span class="line"><span class="regexp">        borderColor: 'black'</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
+<h2 id="TouchableHighlight-与-Touchable-系列组件"><a href="#TouchableHighlight-与-Touchable-系列组件" class="headerlink" title="TouchableHighlight 与 Touchable 系列组件"></a>TouchableHighlight 与 Touchable 系列组件</h2><blockquote>
+<p>响应系统用起来可能比较复杂。所以我们提供了一个抽象的Touchable实现，用来做“可触控”的组件。</p>
+</blockquote>
+<h3 id="TouchableHighlight"><a href="#TouchableHighlight" class="headerlink" title="TouchableHighlight"></a>TouchableHighlight</h3><ul>
+<li>本组件用于封装视图，使其可以正确响应触摸操作</li>
+<li>按下时自带<strong>透明度降低</strong>，<strong>蒙层颜色变化</strong>反馈等效果</li>
+<li>底层实现上，实际会创建一个新的视图到视图层级中</li>
+<li><code>TouchableHighlight</code><strong>只支持一个子节点</strong>，（不能没有子节点也不能多于一个），如果你希望包含多个子组件，可以用一个View来包装它们</li>
+<li><code>JDTouchable</code>实际上是封装的<code>TouchableHighlight</code></li>
+<li><code>hitSlop</code>:这一属性定义了按钮的外延范围。这一范围也会使pressRetentionOffset变得更大。 注意： 触摸范围不会超过父视图的边界，也不会影响原先和本组件层叠的视图（保留原先的触摸优先级）。</li>
+<li><code>onLayout</code>:当加载或者布局改变的时候被调用，参数为：<code>{nativeEvent: {layout: {x, y, width, height}}}</code></li>
+<li><code>onLongPress</code>、 <code>onPress</code></li>
+</ul>
+<h3 id="TouchableOpacity"><a href="#TouchableOpacity" class="headerlink" title="TouchableOpacity"></a>TouchableOpacity</h3><ul>
+<li>本组件用于封装视图，使其可以正确响应触摸操作</li>
+<li>按下时自带<strong>透明度降低</strong>效果</li>
+<li>不透明度的变化是通过把子元素封装在一个<code>Animated.View</code>中来实现的,<strong>这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局</strong>。</li>
+<li>此组件与<code>TouchableHighlight</code>的区别在于并<strong>没有额外的颜色变化</strong>，更适于一般场景</li>
+</ul>
+<h3 id="TouchableWithoutFeedback"><a href="#TouchableWithoutFeedback" class="headerlink" title="TouchableWithoutFeedback"></a>TouchableWithoutFeedback</h3><ul>
+<li>同<code>TouchableHighlight</code>、<code>TouchableOpacity</code>的区别是按下时<strong>没有任何视觉上的反馈</strong>。</li>
+</ul>
+<h3 id="TouchableNativeFeedback"><a href="#TouchableNativeFeedback" class="headerlink" title="TouchableNativeFeedback"></a>TouchableNativeFeedback</h3><ul>
+<li>本组件用于封装视图，使其可以正确响应触摸操作</li>
+<li><strong>仅限Android平台</strong></li>
+<li>在Android设备上，这个组件利用原生状态来渲染触摸的反馈。</li>
+</ul>
+
+        </div>
+
+        <section class="meta">
+            <time class="time" itemprop="dateUpdated" datetime="2019-06-05T18:07:41+08:00" content="2019-06-05">
+                <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
+                本文最后更新于：2019-06-05
+            </time>
+            
+        </section>
+
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/06/05/JavaScript-ES6-类的静态方法、属性和实例方法、属性/" rel="prev" title="JavaScript ES6 类的静态方法、属性和实例方法、属性">
+                                    
+                                        JavaScript ES6 类的静态方法、属性和实例方法、属性
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
+                                    <a class="tag" href="/tags/JavaScript-ES6/">JavaScript, ES6</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+
+    </section>
+
+</article>
+
+<br>
+
+<!-- 显示推荐文章和评论 -->
+
+    <article class="post white-box comments">
+        <section class="article typo">
+
+            
+                
+
+    <div class="recommended_posts">
+        <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
+        <ul>
+            
+                <li><a href="http://yoursite.com/2019/06/05/JavaScript-ES6-类的静态方法、属性和实例方法、属性/">JavaScript ES6 类的静态方法、属性和实例方法、属性</a></li>
+            
+                <li><a href="http://yoursite.com/2019/06/05/关于React-Native-React-中的类型检查/">关于React-Native(React)中的类型检查</a></li>
+            
+                <li><a href="http://yoursite.com/2018/12/07/Javascript中版本号大小比较/">JavaScript版本号大小比较</a></li>
+            
+                <li><a href="http://yoursite.com/2018/10/31/Git知识总结/">Git知识总结</a></li>
+            
+        </ul>
+    </div>
+
+
+            
+
+            
+
+                
+
+                
+
+                
+            
+
+        </section>
+    </article>
+
+
+<script>
+    window.subData = {
+        title: 'RN手势响应系统总结',
+        tools: true
+    }
+</script>
+
+
+        </div>
+        <aside class='l_side'>
+            
+    
+        
+  <section class="m_widget author">
+    
+      <div class="header">
+        <img class="avatar" src="https://raw.githubusercontent.com/dingxinxx/dingxinxx.github.io/master/images/avatar.png">
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:dingxin20@126.com" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-envelope" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://github.com/dingxinxx" class="social flat-box" target="_blank" rel="external"><i class="social fab fa-github" aria-hidden="true"></i></a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=38961017" class="social flat-box" target="_blank" rel="external"><i class="social fas fa-music" aria-hidden="true"></i></a>
+          
+        
+      </div>
+    
+  </section>
+
+
+    
+    
+        
+  <section class="m_widget announcement">
+    <header class="header pure">
+        <div><i class="fas fa-bullhorn fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;公告</div>
+    </header>
+    <div class="content pure">
+      欢迎访问我的博客，希望这里的内容能对你有所帮助
+    </div>
+  </section>
+
+
+    
+    
+        <section class="m_widget categories">
+    <header class="header pure">
+        <div><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;分类</div>
+    </header>
+    <div class="content pure">
+        
+    </div>
+</section>
+
+    
+    
+        
+    <section class="m_widget tagcloud">
+        <header class="header pure">
+            <div><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;标签</div>
+        </header>
+        <div class="content pure">
+            <a href="/tags/JavaScript/" style="font-size: 24px; color: #555">JavaScript</a> <a href="/tags/JavaScript-ES6/" style="font-size: 14px; color: #999">JavaScript, ES6</a> <a href="/tags/JavaScrip学习/" style="font-size: 14px; color: #999">JavaScrip学习</a> <a href="/tags/数据结构、算法/" style="font-size: 14px; color: #999">数据结构、算法</a>
+        </div>
+    </section>
+
+
+    
+    
+        
+    <section class="m_widget toc-wrapper">
+        <header class="header pure">
+            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
+            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
+        </header>
+        <div class="content pure">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#响应者的生命周期"><span class="toc-text">响应者的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期方法列表"><span class="toc-text">生命周期方法列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生命周期方法详解"><span class="toc-text">生命周期方法详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#捕获-ShouldSet-事件处理"><span class="toc-text">捕获 ShouldSet 事件处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#是否愿意成为响应者"><span class="toc-text">是否愿意成为响应者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#尝试成为响应者"><span class="toc-text">尝试成为响应者</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#开始响应触摸事件"><span class="toc-text">开始响应触摸事件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#封装手势"><span class="toc-text">封装手势</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PanResponder"><span class="toc-text">PanResponder</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#响应事件"><span class="toc-text">响应事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#事件方法列表"><span class="toc-text">事件方法列表</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#说明"><span class="toc-text">说明:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#示例："><span class="toc-text">示例：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TouchableHighlight-与-Touchable-系列组件"><span class="toc-text">TouchableHighlight 与 Touchable 系列组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TouchableHighlight"><span class="toc-text">TouchableHighlight</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TouchableOpacity"><span class="toc-text">TouchableOpacity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TouchableWithoutFeedback"><span class="toc-text">TouchableWithoutFeedback</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TouchableNativeFeedback"><span class="toc-text">TouchableNativeFeedback</span></a></li></ol></li></ol>
+        </div>
+    </section>
+
+
+    
+    
+        <section class="m_widget music">
+    <header class="header pure">
+        <div><i class="fas fa-headphones-alt fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;音乐</div>
+        <a class="rightBtn" title="打开博主的网易云音乐主页" target="_blank" rel="external nofollow noopener noreferrer" href="https://music.163.com/#/playlist?id=726507736"><i class="fas fa-external-link-square-alt fa-fw"></i></a>
+    </header>
+    <div class="content pure">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="450" src="//music.163.com/outchain/player?type=0&id=726507736&auto=0&height=450"></iframe>
+    </div>
+</section>
+
+    
+    
+        <section class="m_widget links">
+    <header class="header pure">
+        <div><i class="fas fa-handshake fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;友链</div>
+        
+            <a class="rightBtn" title="联系博主添加友链" target="_blank" rel="external nofollow noopener noreferrer" href="mailto:dingxin20@126.com?subject=交换友链&body=你好，我想和你交换友链，我已经将【在路上】添加到我的博客的友链中。我的博客链接是："><i class="fas fa-plus fa-fw"></i></a>
+        
+    </header>
+    <div class="content pure">
+        <ul class="entry" id="links">
+            
+                <li><a class="flat-box" title="https://xaoxuu.com/blog" target="_blank" rel="external nofollow noopener noreferrer" href="https://xaoxuu.com/blog">
+                    <div class="name">
+                        
+                            <img src="https://xaoxuu.com/assets/img/avatar.jpg">
+                        
+                        &nbsp;&nbsp;xaoxuu&#39;s blog
+                    </div>
+                </a></li>
+            
+        </ul>
+    </div>
+</section>
+
+    
+
+
+        </aside>
+        <script>setLoadingBarProgress(60);</script>
+    </div>
+    </div>
+    <footer id="footer" class="clearfix">
+    
+        <div class="social-wrapper">
+          
+              
+                  <a href="mailto:dingxin20@126.com" class="social fas fa-envelope flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://github.com/dingxinxx" class="social fab fa-github flat-box" target="_blank" rel="external"></a>
+              
+          
+              
+                  <a href="https://music.163.com/#/user/home?id=38961017" class="social fas fa-music flat-box" target="_blank" rel="external"></a>
+              
+          
+        </div>
+    
+    <br>
+    <div>博客内容遵循 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="licenses">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></div>
+    <div>本站使用 <a href="https://xaoxuu.com/wiki/material-x/" target="_blank" class="codename">Material X</a> 作为主题，
+		总访问量为 <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span> 次。
+    </div>
+</footer>
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+    <script>setLoadingBarProgress(80);</script>
+    <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/node-waves/0.7.5/waves.min.js"></script>
+<script src="//cdn.bootcss.com/scrollReveal.js/3.3.2/scrollreveal.min.js"></script>
+<!-- 访问统计 -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/jquery.fitvids.js"></script>
+
+    <script>
+        var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+        var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+        var ALGOLIA_API_KEY = "";
+        var ALGOLIA_APP_ID = "";
+        var ALGOLIA_INDEX_NAME = "";
+        var AZURE_SERVICE_NAME = "";
+        var AZURE_INDEX_NAME = "";
+        var AZURE_QUERY_KEY = "";
+        var BAIDU_API_ID = "";
+        var SEARCH_SERVICE = "hexo" || "hexo";
+        var ROOT = "/"||"/";
+        if(!ROOT.endsWith('/'))ROOT += '/';
+    </script>
+
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+    
+    
+    
+
+
+
+
+
+    <script>setLoadingBarProgress(100);</script>
+</body>
